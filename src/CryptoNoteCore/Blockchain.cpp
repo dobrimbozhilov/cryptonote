@@ -346,7 +346,9 @@ bool Blockchain::checkTransactionInputs(const CryptoNote::Transaction& tx, Block
       return false;
     }
 
-    if (getBlockIdByHeight(maxUsedBlock.height) != maxUsedBlock.id) {
+    //if (getBlockIdByHeight(maxUsedBlock.height) != maxUsedBlock.id) {
+    //fixing some bad transactions
+    if (true) {
       //if we already failed on this height and id, skip actual ring signature check
       if (lastFailed.id == getBlockIdByHeight(lastFailed.height)) {
         return false;
